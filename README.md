@@ -21,7 +21,7 @@ The data is preprocessed to reformat timestamps, add headers, split into overlap
 Both the centralized and federated approaches employ a shared model architecture designed for multi-modal fusion:
 
 *   **Modality Encoders:**
-    *   **Accelerometer (Thigh and Wrist):** Chronos-T5 Time Series Encoder with LoRA for efficient time series feature extraction.
+    *   **Accelerometer (Thigh and Wrist):** Customized T5 transformer Encoder with LoRA for efficient time series feature extraction.
     *   **Depth Camera and Pressure Mat:** Custom CNN Encoder with attention mechanisms for spatial feature extraction.
 *   **Fusion Module:** An Enhanced Fusion Module that utilizes Graph Attention, Mixture of Experts (MoE), and SwiGLU layers to learn complex interactions between the different sensor modalities. It supports dynamic and learnable adjacency to model relationships between modalities.
 *   **Classifier:** A multi-layer perceptron with GELU activation, BatchNorm, and Dropout for classifying the fused features into activity classes.
