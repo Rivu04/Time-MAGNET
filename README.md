@@ -62,3 +62,5 @@ Visualizations such as loss curves, accuracy curves, t-SNE plots, UMAP plots, RO
 ## Implementation Details
 
 The models are implemented using PyTorch. The customized T5 encoder leverages the `transformers` and `peft` libraries. Training includes techniques like gradient accumulation, mixed precision training (`autocast`, `GradScaler`), and learning rate scheduling. The federated learning implementation includes client selection and model aggregation logic.
+
+## Dataset: https://doi.org/10.24432/C59K6T
