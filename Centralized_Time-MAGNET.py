@@ -500,8 +500,8 @@ class FusionLayer(nn.Module):
       
         # SwiGLU feedforward
         self.swiglu = SwiGLU(hidden_dim)
+        
         # RMSNorm layers
-      
         self.norm1 = RMSNorm(hidden_dim)
         self.norm2 = RMSNorm(hidden_dim)
         self.norm3 = RMSNorm(hidden_dim)
@@ -728,10 +728,10 @@ class T5_TimeSeriesEncoder(nn.Module):
         self.encoder = T5Stack(config, embed_tokens=None)
         lora_config = LoraConfig(
             task_type=TaskType.FEATURE_EXTRACTION,
-            r=16, # Increased rank
-            lora_alpha=32, # Increased alpha
+            r=16, 
+            lora_alpha=32, 
             lora_dropout=0.1,
-            target_modules=["q", "k", "v"] # More modules
+            target_modules=["q", "k", "v"] 
         )
       
         self.encoder = get_peft_model(self.encoder, lora_config)
@@ -798,7 +798,7 @@ class DART_CNNEncoder(nn.Module):
         super(DART_CNNEncoder, self).__init__()
         height, width = input_shape
       
-        # Convolutional layers with residual connections
+        # Convolutional layers
         self.conv1 = nn.Conv2d(1, 64, kernel_size=3, stride=1, padding=1)
         self.bn1 = nn.BatchNorm2d(64)
       
